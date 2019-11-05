@@ -29,8 +29,8 @@ json = {
 cloud_init_script = "#!/bin/bash\n git clone " + SETUP_REPO + "\n sh /SiaScripts/setup-sia.sh"
 
 # create server
-server = requests.post(BASE_URL + "/servers", headers=JSON_HEADERS, json=json)
-id = server["id"]
+server = requests.post(BASE_URL + "/servers", headers=JSON_HEADERS, json=json).json()
+id = server["server"]["id"]
 
 # server created
 #server = requests.get(BASE_URL + "/servers", headers=JSON_HEADERS).json()
