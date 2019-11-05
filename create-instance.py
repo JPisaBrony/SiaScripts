@@ -1,17 +1,22 @@
 import requests
 import os.path
+import json
 
 BASE_URL = "https://api.scaleway.com/instance/v1/zones/fr-par-1"
 SETUP_REPO = "https://github.com/JPisaBrony/SiaScripts"
-SETTINGS_FILE = "settings.txt"
+SETTINGS_FILE = "settings.json"
 auth_token = None
 organization = None
+s3backer_passwd = None
 
 if os.path.isfile(SETTINGS_FILE):
+    data = None
     with open(SETTINGS_FILE) as f:
-        lines = f.readlines()
-        auth_token = lines[0].strip()
-        organization = lines[1].strip()
+        data = json.load(f)
+    
+    auth_token = data["auth_token"]
+    organization = data["organization"]
+    s3backer_passwd = data["s3backer_passwd"]
 else:
     print SETTINGS_FILE + " doesn't exist"
     exit(0)
