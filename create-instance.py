@@ -30,11 +30,12 @@ cloud_init_script = "#!/bin/bash\n git clone " + SETUP_REPO + "\n sh /SiaScripts
 
 # create server
 server = requests.post(BASE_URL + "/servers", headers=JSON_HEADERS, json=json)
+id = server["id"]
 
 # server created
 #server = requests.get(BASE_URL + "/servers", headers=JSON_HEADERS).json()
+#id = server["servers"][0]["id"]
 
-id = server["servers"][0]["id"]
 resp = requests.patch(BASE_URL + "/servers/" + id + "/user_data/cloud-init", headers=TEXT_HEADERS, data=cloud_init_script)
 resp = requests.post(BASE_URL + "/servers/" + id + "/action", headers=JSON_HEADERS, json={"action": "poweron"})
 print resp.text

@@ -1,1 +1,1 @@
-screen -S sia
+screen -dmS sia
