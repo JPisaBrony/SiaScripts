@@ -1,5 +1,6 @@
 {
     "auth_token": "",
     "organization": "",
-    "s3backer_passwd": ""
+    "s3backer_passwd": "",
+    "sia_wallet_pass": ""
 }

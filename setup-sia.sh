@@ -1,4 +1,4 @@
-apt-get update
+apt-get update -y
 
 cd /SiaScripts
 
@@ -10,7 +10,6 @@ tar -xzf 1.5.4.tar.gz
 cd s3backer-1.5.4
 ./autogen.sh
 ./configure
-make dist
 make install
 
 cd /SiaScripts
