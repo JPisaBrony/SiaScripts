@@ -19,7 +19,7 @@ cd /SiaScripts
 
 mkdir blk
 mkdir mount
-s3backer --size=75G main --region=fr-par --baseURL=https://s3.fr-par.scw.cloud/ blk
+s3backer --size=75G main --region=fr-par --accessFile=/root/.s3backer_passwd --baseURL=https://s3.fr-par.scw.cloud/ blk
 mount -o loop blk/file mount/
 
 docker run \
@@ -29,6 +29,6 @@ docker run \
   --publish 9981:9981 \
   --publish 9982:9982 \
   --restart always \
-  --env SIA_WALLET_PASSWORD="$(cat ~/wallet-seed.txt)" \
+  --env SIA_WALLET_PASSWORD="$(cat /root/wallet-seed.txt)" \
   --name sia-container \
    mtlynch/sia
