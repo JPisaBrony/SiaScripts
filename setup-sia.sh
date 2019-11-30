@@ -1,8 +1,5 @@
 apt-get update -y
 
-scw-userdata s3backer_passwd > ~/.s3backer_passwd
-scw-userdata sia_wallet_pass > ~/wallet-seed.txt
-
 cd /SiaScripts
 
 mkdir s3backer
@@ -14,6 +11,9 @@ cd s3backer-1.5.4
 ./autogen.sh
 ./configure
 make install
+
+scw-userdata s3backer_passwd > ~/.s3backer_passwd
+scw-userdata sia_wallet_pass > ~/wallet-seed.txt
 
 cd /SiaScripts
 
